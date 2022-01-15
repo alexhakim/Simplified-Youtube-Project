@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SigninActivity">
+
+    <ImageView
+        android:id="@+id/clearImageView"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/ic_baseline_clear_24" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/google_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="130dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="with your Google Account."
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="165dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextInputLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        android:ems="10"
+        android:alpha="1"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:inputType="textPersonName"
+        android:minHeight="48dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:alpha="1"
+            android:background="@color/white"
+            android:ems="10"
+            android:hint="Email"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextInputLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:ems="10"
+        android:alpha="1"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:minHeight="48dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#808080">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:hint="Password"
+            android:alpha="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGN In"
+        android:backgroundTint="#4267B2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"/>
+
+</RelativeLayout>

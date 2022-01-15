@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "211641203521",
+    "project_id": "simplifiedyt-a10be",
+    "storage_bucket": "simplifiedyt-a10be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211641203521:android:b8c646b3802ee7f277bfc0",
+        "android_client_info": {
+          "package_name": "com.alexandrehakim.youtubesimplified"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211641203521-p24o94lcg9tgbk6300k846oo79k3rann.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexandrehakim.youtubesimplified",
+            "certificate_hash": "d51432b7c7912a2cc56fb58e06f5f435f807fbc0"
+          }
+        },
+        {
+          "client_id": "211641203521-t05ccgsr5mtklspm4j820r01lnpb2b9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNGXn9Z53sYshnit7PaWtOHkVKDCX-LYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211641203521-t05ccgsr5mtklspm4j820r01lnpb2b9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
