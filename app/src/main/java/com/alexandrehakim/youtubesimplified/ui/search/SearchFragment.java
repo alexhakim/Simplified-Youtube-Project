@@ -130,14 +130,17 @@ public class SearchFragment extends Fragment {
                             String titleSegment3 = item2.getString("snippet");
                             String[] trim3 = titleSegment3.split("\"");
                             String title3 = trim3[11];
-                            String poster3 = trim3[25];
-                            Log.d("tempposter3",poster3);
+                            JSONObject snippet = item2.getJSONObject("snippet");
+                            Log.i("SNIPPET", String.valueOf(snippet));
+                            JSONObject thumbnails = snippet.getJSONObject("thumbnails");
+                            Log.i("thumbnails", String.valueOf(thumbnails));
+                            String[] parseURL = String.valueOf(thumbnails).split("https");
+                            String poster3Temp = parseURL[1];
+                            String[] finalParse = poster3Temp.split(",\"width");
+                            String poster3 = "https" + finalParse[0];
                             poster3 = poster3.replaceAll("\\\\","");
-                            try {
-                                Picasso.get().load(poster3).into(item2ImageView);
-                            }catch (IllegalArgumentException e){
-                                e.printStackTrace();
-                            }
+                            Log.d("posterString",poster3);
+                            Picasso.get().load(poster3).into(item2ImageView);
                             item2TextView.setText(title3);
 
                             String titleSegment4 = item3.getString("snippet");
