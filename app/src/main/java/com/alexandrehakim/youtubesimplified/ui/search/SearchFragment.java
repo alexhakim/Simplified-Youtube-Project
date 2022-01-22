@@ -34,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class SearchFragment extends Fragment {
@@ -64,6 +65,14 @@ public class SearchFragment extends Fragment {
         searchButton = binding.searchButton;
         item0TextView = binding.item0TextView;
         item0ImageView = binding.item0ImageView;
+        item1TextView = binding.item1TextView;
+        item1ImageView = binding.item1ImageView;
+        item2TextView = binding.item2TextView;
+        item2ImageView = binding.item2ImageView;
+        item3TextView = binding.item3TextView;
+        item3ImageView = binding.item3ImageView;
+        item4TextView = binding.item4TextView;
+        item4ImageView = binding.item4ImageView;
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,18 +104,67 @@ public class SearchFragment extends Fragment {
                             String[] trim = titleSegment.split("\"");
                             String title = trim[11];
                             Log.i("VIDEOTITLE",title);
-                            titles.add(title);
-                            ttl=title;
-
                             String poster = trim[25];
                             poster = poster.replaceAll("\\\\","");
                             Log.i("POSTER",poster);
                             //Toast.makeText(getContext(), poster, Toast.LENGTH_SHORT).show();
                             Picasso.get().load(poster).into(item0ImageView);
                             // hashmap instead??
-                            Log.i("songTitles",String.valueOf(titles));
-                            Log.i("songIds",String.valueOf(IDs));
+                            item0TextView.setText(title);
 
+                            String titleSegment2 = item1.getString("snippet");
+                            String[] trim2 = titleSegment2.split("\"");
+                            String title2 = trim2[11];
+                            String poster2 = trim[25];
+                            Log.d("TITLE2",title2);
+                            item1TextView.setText(title2);
+                            poster2 = poster2.replaceAll("\\\\","");
+                            Log.d("POSTER2",poster2);
+                            try {
+                                Picasso.get().load(poster2).into(item1ImageView);
+                            }catch (IllegalArgumentException e){
+                                e.printStackTrace();
+                            }
+
+
+                            String titleSegment3 = item2.getString("snippet");
+                            String[] trim3 = titleSegment3.split("\"");
+                            String title3 = trim3[11];
+                            String poster3 = trim3[25];
+                            Log.d("tempposter3",poster3);
+                            poster3 = poster3.replaceAll("\\\\","");
+                            try {
+                                Picasso.get().load(poster3).into(item2ImageView);
+                            }catch (IllegalArgumentException e){
+                                e.printStackTrace();
+                            }
+                            item2TextView.setText(title3);
+
+                            String titleSegment4 = item3.getString("snippet");
+                            String[] trim4 = titleSegment4.split("\"");
+                            String title4 = trim4[11];
+                            String poster4 = trim4[25];
+
+                            Log.d("tempposter4",poster4);
+                            poster4 = poster4.replaceAll("\\\\","");
+                            try {
+                                Picasso.get().load(poster4).into(item3ImageView);
+                            }catch (IllegalArgumentException e){
+                                e.printStackTrace();
+                            }
+                            item3TextView.setText(title4);
+
+                            String titleSegment5 = item4.getString("snippet");
+                            String[] trim5 = titleSegment5.split("\"");
+                            String title5 = trim5[11];
+                            String poster5 = trim5[25];
+                            poster5 = poster5.replaceAll("\\\\","");
+                            try {
+                                Picasso.get().load(poster5).into(item4ImageView);
+                            }catch (IllegalArgumentException e){
+                                e.printStackTrace();
+                            }
+                            item4TextView.setText(title5);
 
 
                         }catch (JSONException e){
@@ -131,31 +189,5 @@ public class SearchFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    private void getJSONData(JSONObject item){
-        try {
-            String titleSegment = item.getString("snippet");
-            String[] trim = titleSegment.split("\"");
-            String title = trim[11];
-            Log.i("VIDEOTITLE", title);
-            titles.add(title);
-            ttl = title;
-
-            String poster = trim[25];
-            poster = poster.replaceAll("\\\\", "");
-            Log.i("POSTER", poster);
-            //Toast.makeText(getContext(), poster, Toast.LENGTH_SHORT).show();
-            Picasso.get().load(poster).into(item0ImageView);
-            // hashmap instead??
-            Log.i("songTitles", String.valueOf(titles));
-            Log.i("songIds", String.valueOf(IDs));
-
-            item0TextView.setText(title);
-            Log.i("item0text",item0TextView.getText().toString());
-
-        }catch (JSONException e){
-            e.printStackTrace();
-        }
     }
 }
