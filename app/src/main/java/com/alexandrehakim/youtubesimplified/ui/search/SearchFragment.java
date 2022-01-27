@@ -78,8 +78,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String query = searchEditText.getText().toString(); // input by user
-                String URL = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + query + "&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo";
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+                String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + query + "&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo";
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
@@ -91,83 +91,13 @@ public class SearchFragment extends Fragment {
                             JSONObject item3 = jsonArray.getJSONObject(3);
                             JSONObject item4 = jsonArray.getJSONObject(4);
 
-                            Log.i("item0",String.valueOf(item0));
-                            Log.i("item1",String.valueOf(item1));
-                            Log.i("item2",String.valueOf(item2));
-                            Log.i("item3",String.valueOf(item3));
-                            Log.i("item4",String.valueOf(item4));
+                            Log.d("item0",String.valueOf(item0));
 
-                            // temp
-
-
-                            String titleSegment = item0.getString("snippet");
-                            String[] trim = titleSegment.split("\"");
-                            String title = trim[11];
-                            Log.i("VIDEOTITLE",title);
-                            String poster = trim[25];
-                            poster = poster.replaceAll("\\\\","");
-                            Log.i("POSTER",poster);
-                            //Toast.makeText(getContext(), poster, Toast.LENGTH_SHORT).show();
-                            Picasso.get().load(poster).into(item0ImageView);
-                            // hashmap instead??
-                            item0TextView.setText(title);
-
-                            String titleSegment2 = item1.getString("snippet");
-                            String[] trim2 = titleSegment2.split("\"");
-                            String title2 = trim2[11];
-                            String poster2 = trim[25];
-                            Log.d("TITLE2",title2);
-                            item1TextView.setText(title2);
-                            poster2 = poster2.replaceAll("\\\\","");
-                            Log.d("POSTER2",poster2);
-                            try {
-                                Picasso.get().load(poster2).into(item1ImageView);
-                            }catch (IllegalArgumentException e){
-                                e.printStackTrace();
-                            }
-
-
-                            String titleSegment3 = item2.getString("snippet");
-                            String[] trim3 = titleSegment3.split("\"");
-                            String title3 = trim3[11];
-                            JSONObject snippet = item2.getJSONObject("snippet");
-                            Log.i("SNIPPET", String.valueOf(snippet));
-                            JSONObject thumbnails = snippet.getJSONObject("thumbnails");
-                            Log.i("thumbnails", String.valueOf(thumbnails));
-                            String[] parseURL = String.valueOf(thumbnails).split("https");
-                            String poster3Temp = parseURL[1];
-                            String[] finalParse = poster3Temp.split(",\"width");
-                            String poster3 = "https" + finalParse[0];
-                            poster3 = poster3.replaceAll("\\\\","");
-                            Log.d("posterString",poster3);
-                            Picasso.get().load(poster3).into(item2ImageView);
-                            item2TextView.setText(title3);
-
-                            String titleSegment4 = item3.getString("snippet");
-                            String[] trim4 = titleSegment4.split("\"");
-                            String title4 = trim4[11];
-                            String poster4 = trim4[25];
-
-                            Log.d("tempposter4",poster4);
-                            poster4 = poster4.replaceAll("\\\\","");
-                            try {
-                                Picasso.get().load(poster4).into(item3ImageView);
-                            }catch (IllegalArgumentException e){
-                                e.printStackTrace();
-                            }
-                            item3TextView.setText(title4);
-
-                            String titleSegment5 = item4.getString("snippet");
-                            String[] trim5 = titleSegment5.split("\"");
-                            String title5 = trim5[11];
-                            String poster5 = trim5[25];
-                            poster5 = poster5.replaceAll("\\\\","");
-                            try {
-                                Picasso.get().load(poster5).into(item4ImageView);
-                            }catch (IllegalArgumentException e){
-                                e.printStackTrace();
-                            }
-                            item4TextView.setText(title5);
+                            getItem0(item0);
+                            getItem1(item1);
+                            getItem2(item2);
+                            getItem3(item3);
+                            getItem4(item4);
 
 
                         }catch (JSONException e){
@@ -192,5 +122,117 @@ public class SearchFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void getItem0(JSONObject item0){
+        // get video ID
+        try {
+            JSONObject item0id = item0.getJSONObject("id");
+            Log.d("item0id", String.valueOf(item0id));
+            String item0VideoID = item0id.getString("videoId");
+            Log.d("item0VideoID", item0VideoID);
+
+            // get video title
+            JSONObject item0snippet = item0.getJSONObject("snippet");
+            Log.d("item0snippet", String.valueOf(item0snippet));
+            String item0Title = item0snippet.getString("title");
+            Log.d("titleString", item0Title);
+            item0TextView.setText(item0Title);
+
+            // get video thumbnail
+            JSONObject item0thumbnails = item0snippet.getJSONObject("thumbnails");
+            Log.d("item0thumbnails", String.valueOf(item0thumbnails));
+            JSONObject item0medium = item0thumbnails.getJSONObject("default");
+            Log.d("item0medium", String.valueOf(item0medium));
+            String item0Thumbnail = item0medium.getString("url");
+            Log.d("item0Thumbnail", item0Thumbnail);
+            Picasso.get().load(item0Thumbnail).into(item0ImageView);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void getItem1(JSONObject item1){
+        try {
+            // get video ID
+            JSONObject item1id = item1.getJSONObject("id");
+            String item0VideoID = item1id.getString("videoId");
+
+            // get video title
+            JSONObject item1snippet = item1.getJSONObject("snippet");
+            String item1Title = item1snippet.getString("title");
+            item1TextView.setText(item1Title);
+
+            // get video thumbnail
+            JSONObject item1thumbnails = item1snippet.getJSONObject("thumbnails");
+            JSONObject item1medium = item1thumbnails.getJSONObject("default");
+            String item1Thumbnail = item1medium.getString("url");
+            Picasso.get().load(item1Thumbnail).into(item1ImageView);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void getItem2(JSONObject item2){
+        try {
+            // get video ID
+            JSONObject item2id = item2.getJSONObject("id");
+            String item2VideoID = item2id.getString("videoId");
+
+            // get video title
+            JSONObject item2snippet = item2.getJSONObject("snippet");
+            String item2Title = item2snippet.getString("title");
+            item2TextView.setText(item2Title);
+
+            // get video thumbnail
+            JSONObject item2thumbnails = item2snippet.getJSONObject("thumbnails");
+            JSONObject item2medium = item2thumbnails.getJSONObject("default");
+            String item2Thumbnail = item2medium.getString("url");
+            Picasso.get().load(item2Thumbnail).into(item2ImageView);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void getItem3(JSONObject item3){
+        try {
+            // get video ID
+            JSONObject item3id = item3.getJSONObject("id");
+            String item3VideoID = item3id.getString("videoId");
+
+            // get video title
+            JSONObject item3snippet = item3.getJSONObject("snippet");
+            String item3Title = item3snippet.getString("title");
+            item3TextView.setText(item3Title);
+
+            // get video thumbnail
+            JSONObject item3thumbnails = item3snippet.getJSONObject("thumbnails");
+            JSONObject item3medium = item3thumbnails.getJSONObject("default");
+            String item3Thumbnail = item3medium.getString("url");
+            Picasso.get().load(item3Thumbnail).into(item3ImageView);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void getItem4(JSONObject item4){
+        try {
+            // get video ID
+            JSONObject item4id = item4.getJSONObject("id");
+            String item4VideoID = item4id.getString("videoId");
+
+            // get video title
+            JSONObject item4snippet = item4.getJSONObject("snippet");
+            String item4Title = item4snippet.getString("title");
+            item4TextView.setText(item4Title);
+
+            // get video thumbnail
+            JSONObject item4thumbnails = item4snippet.getJSONObject("thumbnails");
+            JSONObject item4medium = item4thumbnails.getJSONObject("default");
+            String item4Thumbnail = item4medium.getString("url");
+            Picasso.get().load(item4Thumbnail).into(item4ImageView);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }
