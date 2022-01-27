@@ -14,20 +14,16 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:exported="false" />
         <activity
-            android:name=".SigninActivity"
-            android:screenOrientation="locked"
-            android:exported="false" />
-        <activity
             android:name=".SettingsActivity"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".NotificationsActivity"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="locked"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/app_name" >
             <intent-filter>
