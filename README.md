@@ -10,6 +10,10 @@ I do not claim any rights concerning APIs, libraries or images used in this proj
 The purpose of this project is to develop a simplified verstion of the android youtube application.
 
 ## App Main Features
+1. Login features
+2. History, Settings, Profile
+3. Search & Play videos
+4. Trending videos
 
 ### Created by Alexandre Hakim. 
 
