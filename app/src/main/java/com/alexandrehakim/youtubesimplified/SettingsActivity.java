@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.google.android.gms.common.SignInButton;
+
 import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
 
     ImageView clearImageView;
-    Button signinButton;
+    SignInButton signinButton;
     ListView settingsListView;
 
     ArrayList<String> settingsOptions = new ArrayList<String>();
