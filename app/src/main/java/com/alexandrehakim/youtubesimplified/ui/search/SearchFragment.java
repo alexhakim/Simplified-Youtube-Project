@@ -1,6 +1,7 @@
 package com.alexandrehakim.youtubesimplified.ui.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.input.InputManager;
 import android.media.Image;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.alexandrehakim.youtubesimplified.PlayVideoActivity;
 import com.alexandrehakim.youtubesimplified.databinding.FragmentLibraryBinding;
 import com.alexandrehakim.youtubesimplified.databinding.FragmentSearchBinding;
 import com.android.volley.Request;
@@ -46,9 +48,7 @@ public class SearchFragment extends Fragment {
     private SearchViewModel searchViewModel;
     private FragmentSearchBinding binding;
     private RequestQueue requestQueue;
-    ArrayList<String> IDs = new ArrayList<String>();
-    ArrayList<String> titles = new ArrayList<String>();
-    String ID, ttl;
+    TinyDB tinyDB;
 
     EditText searchEditText;
     Button searchButton;
@@ -65,6 +65,9 @@ public class SearchFragment extends Fragment {
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
+        Intent playVideoIntent = new Intent(getContext(), PlayVideoActivity.class);
+        tinyDB = new TinyDB(getContext());
+
         searchEditText = binding.searchEditText;
         searchButton = binding.searchButton;
         item0TextView = binding.item0TextView;
@@ -77,6 +80,7 @@ public class SearchFragment extends Fragment {
         item3ImageView = binding.item3ImageView;
         item4TextView = binding.item4TextView;
         item4ImageView = binding.item4ImageView;
+
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +129,96 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        item0ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos0");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item0TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos0");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item1ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos1");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item1TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos1");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item2ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos2");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item2TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos2");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item3ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos3");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item3TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos3");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item4ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos4");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        item4TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos4");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
         return root;
     }
 
@@ -141,6 +235,7 @@ public class SearchFragment extends Fragment {
             Log.d("item0id", String.valueOf(item0id));
             String item0VideoID = item0id.getString("videoId");
             Log.d("item0VideoID", item0VideoID);
+            tinyDB.putString("pos0",item0VideoID);
 
             // get video title
             JSONObject item0snippet = item0.getJSONObject("snippet");
@@ -166,7 +261,8 @@ public class SearchFragment extends Fragment {
         try {
             // get video ID
             JSONObject item1id = item1.getJSONObject("id");
-            String item0VideoID = item1id.getString("videoId");
+            String item1VideoID = item1id.getString("videoId");
+            tinyDB.putString("pos1",item1VideoID);
 
             // get video title
             JSONObject item1snippet = item1.getJSONObject("snippet");
@@ -188,6 +284,7 @@ public class SearchFragment extends Fragment {
             // get video ID
             JSONObject item2id = item2.getJSONObject("id");
             String item2VideoID = item2id.getString("videoId");
+            tinyDB.putString("pos2",item2VideoID);
 
             // get video title
             JSONObject item2snippet = item2.getJSONObject("snippet");
@@ -209,6 +306,7 @@ public class SearchFragment extends Fragment {
             // get video ID
             JSONObject item3id = item3.getJSONObject("id");
             String item3VideoID = item3id.getString("videoId");
+            tinyDB.putString("pos3",item3VideoID);
 
             // get video title
             JSONObject item3snippet = item3.getJSONObject("snippet");
@@ -230,6 +328,7 @@ public class SearchFragment extends Fragment {
             // get video ID
             JSONObject item4id = item4.getJSONObject("id");
             String item4VideoID = item4id.getString("videoId");
+            tinyDB.putString("pos4",item4VideoID);
 
             // get video title
             JSONObject item4snippet = item4.getJSONObject("snippet");
@@ -245,4 +344,5 @@ public class SearchFragment extends Fragment {
             e.printStackTrace();
         }
     }
+
 }
