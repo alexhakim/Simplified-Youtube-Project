@@ -1,11 +1,15 @@
 package com.alexandrehakim.youtubesimplified.ui.search;
 
+import android.content.Context;
+import android.hardware.input.InputManager;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -83,6 +87,12 @@ public class SearchFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+
+                            // hide soft keyboard after search
+                            InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+
+
                             JSONArray jsonArray = response.getJSONArray("items");
 
                             JSONObject item0 = jsonArray.getJSONObject(0);
