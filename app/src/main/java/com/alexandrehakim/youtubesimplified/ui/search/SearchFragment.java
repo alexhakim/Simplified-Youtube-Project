@@ -247,7 +247,7 @@ public class SearchFragment extends Fragment {
             // get video thumbnail
             JSONObject item0thumbnails = item0snippet.getJSONObject("thumbnails");
             Log.d("item0thumbnails", String.valueOf(item0thumbnails));
-            JSONObject item0medium = item0thumbnails.getJSONObject("default");
+            JSONObject item0medium = item0thumbnails.getJSONObject("medium");
             Log.d("item0medium", String.valueOf(item0medium));
             String item0Thumbnail = item0medium.getString("url");
             Log.d("item0Thumbnail", item0Thumbnail);
@@ -271,7 +271,7 @@ public class SearchFragment extends Fragment {
 
             // get video thumbnail
             JSONObject item1thumbnails = item1snippet.getJSONObject("thumbnails");
-            JSONObject item1medium = item1thumbnails.getJSONObject("default");
+            JSONObject item1medium = item1thumbnails.getJSONObject("medium");
             String item1Thumbnail = item1medium.getString("url");
             Picasso.get().load(item1Thumbnail).into(item1ImageView);
         }catch (JSONException e){
@@ -293,7 +293,7 @@ public class SearchFragment extends Fragment {
 
             // get video thumbnail
             JSONObject item2thumbnails = item2snippet.getJSONObject("thumbnails");
-            JSONObject item2medium = item2thumbnails.getJSONObject("default");
+            JSONObject item2medium = item2thumbnails.getJSONObject("medium");
             String item2Thumbnail = item2medium.getString("url");
             Picasso.get().load(item2Thumbnail).into(item2ImageView);
         }catch (JSONException e){
@@ -315,7 +315,7 @@ public class SearchFragment extends Fragment {
 
             // get video thumbnail
             JSONObject item3thumbnails = item3snippet.getJSONObject("thumbnails");
-            JSONObject item3medium = item3thumbnails.getJSONObject("default");
+            JSONObject item3medium = item3thumbnails.getJSONObject("medium");
             String item3Thumbnail = item3medium.getString("url");
             Picasso.get().load(item3Thumbnail).into(item3ImageView);
         }catch (JSONException e){
@@ -337,7 +337,7 @@ public class SearchFragment extends Fragment {
 
             // get video thumbnail
             JSONObject item4thumbnails = item4snippet.getJSONObject("thumbnails");
-            JSONObject item4medium = item4thumbnails.getJSONObject("default");
+            JSONObject item4medium = item4thumbnails.getJSONObject("medium");
             String item4Thumbnail = item4medium.getString("url");
             Picasso.get().load(item4Thumbnail).into(item4ImageView);
         }catch (JSONException e){
