@@ -36,6 +36,8 @@ public class PlayVideoActivity extends AppCompatActivity {
             }
         });
 
+        youTubePlayerView.toggleFullScreen();
+
     }
 
 }
