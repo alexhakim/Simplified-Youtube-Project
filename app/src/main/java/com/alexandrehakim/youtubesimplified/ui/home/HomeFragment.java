@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
-        String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=FR&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo";
+        String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=FR&type=video&videoDefinition=high&key=AIzaSyApDn2g2N5FrgX24CMSx08QSn0asjGvWws";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
