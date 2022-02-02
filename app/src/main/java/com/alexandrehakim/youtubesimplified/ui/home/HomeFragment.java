@@ -1,6 +1,7 @@
 package com.alexandrehakim.youtubesimplified.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.alexandrehakim.youtubesimplified.PlayVideoActivity;
 import com.alexandrehakim.youtubesimplified.R;
 import com.alexandrehakim.youtubesimplified.databinding.FragmentHomeBinding;
 import com.alexandrehakim.youtubesimplified.ui.search.TinyDB;
@@ -49,6 +51,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        Intent playVideoIntent = new Intent(getContext(), PlayVideoActivity.class);
         tinyDB = new TinyDB(getContext());
 
         bindings();
@@ -57,7 +60,7 @@ public class HomeFragment extends Fragment {
 
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
-        String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=CA&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo";
+        String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=FR&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -90,6 +93,53 @@ public class HomeFragment extends Fragment {
         });
 
         requestQueue.add(request);
+
+        video1ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos0");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        video2ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos1");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+        video3ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos2");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+
+        video4ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos3");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
+
+
+        video5ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoID = tinyDB.getString("pos4");
+                playVideoIntent.putExtra("pos",videoID);
+                startActivity(playVideoIntent);
+            }
+        });
 
         return root;
 
