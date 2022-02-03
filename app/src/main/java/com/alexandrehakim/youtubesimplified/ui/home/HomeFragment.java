@@ -56,8 +56,6 @@ public class HomeFragment extends Fragment {
 
         bindings();
 
-        // https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=CA&type=video&videoDefinition=high&key=AIzaSyA_LuldauHIe-yH81W9oVDcdVpvdPH7rTo
-
         requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
         String url = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&order=relevance&chart=mostPopular&regionCode=FR&type=video&videoDefinition=high&key=AIzaSyApDn2g2N5FrgX24CMSx08QSn0asjGvWws";
