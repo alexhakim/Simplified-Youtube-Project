@@ -12,10 +12,12 @@
         <entry key="app/src/main/res/layout/activity_play_video.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.2296875" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_adapterview.xml" value="0.2296875" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />
       </map>
     </option>

@@ -75,7 +75,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         settingsOptions.add("About");
         settingsOptions.add("General");
-        settingsOptions.add("History");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(SettingsActivity.this, android.R.layout.simple_list_item_1, settingsOptions);
         settingsListView.setAdapter(arrayAdapter);

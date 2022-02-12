@@ -4,5 +4,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="search">Search</string>
-    <string name="library">Library</string>
+    <string name="history">History</string>
 </resources>

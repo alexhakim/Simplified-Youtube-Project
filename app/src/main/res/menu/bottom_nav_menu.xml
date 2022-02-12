@@ -12,8 +12,8 @@
         android:title="@string/search" />
 
     <item
-        android:id="@+id/navigation_library"
-        android:icon="@drawable/ic_baseline_video_library_24"
-        android:title="@string/library" />
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="@string/history" />
 
 </menu>

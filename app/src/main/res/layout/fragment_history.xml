@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.library.LibraryFragment">
+    tools:context=".ui.library.HistoryFragment">
 
     <TextView
         style="@style/TextAppearance.AppCompat.Title"
@@ -12,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:layout_marginStart="10dp"
-        android:text="Downloads"
+        android:text="History"
         android:textSize="20sp" />
 
     <ListView
-        android:id="@+id/downloadsListView"
+        android:id="@+id/historyListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"

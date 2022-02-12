@@ -25,7 +25,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.alexandrehakim.youtubesimplified.PlayVideoActivity;
-import com.alexandrehakim.youtubesimplified.databinding.FragmentLibraryBinding;
 import com.alexandrehakim.youtubesimplified.databinding.FragmentSearchBinding;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;

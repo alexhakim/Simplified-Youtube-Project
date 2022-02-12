@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 public class NotificationsActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,5 +18,6 @@ public class NotificationsActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
     }
 }
