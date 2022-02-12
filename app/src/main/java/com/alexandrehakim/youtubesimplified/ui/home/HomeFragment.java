@@ -97,8 +97,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos0");
                 String thumbnail = tinyDB.getString("thumbnail0");
+                String title = tinyDB.getString("title0");
                 playVideoIntent.putExtra("pos",videoID);
                 playVideoIntent.putExtra("thumbnail",thumbnail);
+                playVideoIntent.putExtra("title",title);
                 startActivity(playVideoIntent);
             }
         });
@@ -108,8 +110,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos1");
                 String thumbnail = tinyDB.getString("thumbnail1");
+                String title = tinyDB.getString("title1");
                 playVideoIntent.putExtra("pos",videoID);
                 playVideoIntent.putExtra("thumbnail",thumbnail);
+                playVideoIntent.putExtra("title",title);
                 startActivity(playVideoIntent);
             }
         });
@@ -119,8 +123,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos2");
                 String thumbnail = tinyDB.getString("thumbnail2");
+                String title = tinyDB.getString("title2");
                 playVideoIntent.putExtra("pos",videoID);
                 playVideoIntent.putExtra("thumbnail",thumbnail);
+                playVideoIntent.putExtra("title",title);
                 startActivity(playVideoIntent);
             }
         });
@@ -131,8 +137,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos3");
                 String thumbnail = tinyDB.getString("thumbnail3");
+                String title = tinyDB.getString("title3");
                 playVideoIntent.putExtra("pos",videoID);
                 playVideoIntent.putExtra("thumbnail",thumbnail);
+                playVideoIntent.putExtra("title",title);
                 startActivity(playVideoIntent);
             }
         });
@@ -143,8 +151,10 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos4");
                 String thumbnail = tinyDB.getString("thumbnail4");
+                String title = tinyDB.getString("title4");
                 playVideoIntent.putExtra("pos",videoID);
                 playVideoIntent.putExtra("thumbnail",thumbnail);
+                playVideoIntent.putExtra("title",title);
                 startActivity(playVideoIntent);
             }
         });
@@ -162,6 +172,7 @@ public class HomeFragment extends Fragment {
             // get video title
             JSONObject itemsnippet = item.getJSONObject("snippet");
             String itemTitle = itemsnippet.getString("title");
+            tinyDB.putString("title0",itemTitle);
             video1TextView.setText(itemTitle);
 
             // get video thumbnail
@@ -185,6 +196,7 @@ public class HomeFragment extends Fragment {
             // get video title
             JSONObject itemsnippet = item.getJSONObject("snippet");
             String itemTitle = itemsnippet.getString("title");
+            tinyDB.putString("title1",itemTitle);
             video2TextView.setText(itemTitle);
 
             // get video thumbnail
@@ -208,6 +220,7 @@ public class HomeFragment extends Fragment {
             // get video title
             JSONObject itemsnippet = item.getJSONObject("snippet");
             String itemTitle = itemsnippet.getString("title");
+            tinyDB.putString("title2",itemTitle);
             video3TextView.setText(itemTitle);
 
             // get video thumbnail
@@ -231,6 +244,7 @@ public class HomeFragment extends Fragment {
             // get video title
             JSONObject itemsnippet = item.getJSONObject("snippet");
             String itemTitle = itemsnippet.getString("title");
+            tinyDB.putString("title3",itemTitle);
             video4TextView.setText(itemTitle);
 
             // get video thumbnail
@@ -254,6 +268,7 @@ public class HomeFragment extends Fragment {
             // get video title
             JSONObject itemsnippet = item.getJSONObject("snippet");
             String itemTitle = itemsnippet.getString("title");
+            tinyDB.putString("title4",itemTitle);
             video5TextView.setText(itemTitle);
 
             // get video thumbnail

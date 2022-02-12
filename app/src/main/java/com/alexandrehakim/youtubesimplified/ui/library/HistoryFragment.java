@@ -1,11 +1,13 @@
 package com.alexandrehakim.youtubesimplified.ui.library;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -26,9 +28,11 @@ public class HistoryFragment extends Fragment {
 
     private History history;
     private FragmentHistoryBinding binding;
+    ImageView videoImageView;
     ListView historyListView;
     ArrayAdapter arrayAdapter;
     ArrayList<String> historyArrayList = new ArrayList<String>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,16 +44,24 @@ public class HistoryFragment extends Fragment {
 
         historyListView = binding.historyListView;
 
+
+
         FirebaseFirestore.getInstance().collection("history").document("history")
                 .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                     @Override
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                         // TODO : get array of thumbnails + array of titles
+                        if (value.get("history") != null){
+                            historyArrayList = (ArrayList<String>) value.get("history");
+
+                            arrayAdapter = new ArrayAdapter(getContext(), R.layout.layout_adapterview, R.id.titleTextView, historyArrayList);
+                            historyListView.setAdapter(arrayAdapter);
+                        }
+
+
                     }
                 });
 
-        arrayAdapter = new ArrayAdapter(getContext(), R.layout.layout_adapterview, R.id.titleTextView, historyArrayList);
-        historyListView.setAdapter(arrayAdapter);
 
         historyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

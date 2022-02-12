@@ -41,7 +41,7 @@ public class PlayVideoActivity extends AppCompatActivity {
         youTubePlayerView.toggleFullScreen();
 
         FirebaseFirestore.getInstance().collection("history").document("history")
-                .update("history",FieldValue.arrayUnion(getVideo.getStringExtra("pos")));
+                .update("history",FieldValue.arrayUnion(getVideo.getStringExtra("title")));
 
         FirebaseFirestore.getInstance().collection("history").document("history")
                 .update("thumbnailHistory",FieldValue.arrayUnion(getVideo.getStringExtra("thumbnail")));
