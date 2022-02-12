@@ -96,7 +96,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos0");
+                String thumbnail = tinyDB.getString("thumbnail0");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -105,7 +107,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos1");
+                String thumbnail = tinyDB.getString("thumbnail1");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -114,7 +118,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos2");
+                String thumbnail = tinyDB.getString("thumbnail2");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -124,7 +130,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos3");
+                String thumbnail = tinyDB.getString("thumbnail3");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -134,7 +142,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos4");
+                String thumbnail = tinyDB.getString("thumbnail4");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -159,6 +169,7 @@ public class HomeFragment extends Fragment {
             JSONObject itemmedium = itemthumbnails.getJSONObject("high");
             String itemThumbnail = itemmedium.getString("url");
             Picasso.get().load(itemThumbnail).into(video1ImageView);
+            tinyDB.putString("thumbnail0",itemThumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -181,6 +192,7 @@ public class HomeFragment extends Fragment {
             JSONObject itemmedium = itemthumbnails.getJSONObject("high");
             String itemThumbnail = itemmedium.getString("url");
             Picasso.get().load(itemThumbnail).into(video2ImageView);
+            tinyDB.putString("thumbnail1",itemThumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -203,6 +215,7 @@ public class HomeFragment extends Fragment {
             JSONObject itemmedium = itemthumbnails.getJSONObject("high");
             String itemThumbnail = itemmedium.getString("url");
             Picasso.get().load(itemThumbnail).into(video3ImageView);
+            tinyDB.putString("thumbnail2",itemThumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -225,6 +238,7 @@ public class HomeFragment extends Fragment {
             JSONObject itemmedium = itemthumbnails.getJSONObject("high");
             String itemThumbnail = itemmedium.getString("url");
             Picasso.get().load(itemThumbnail).into(video4ImageView);
+            tinyDB.putString("thumbnail3",itemThumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -247,6 +261,7 @@ public class HomeFragment extends Fragment {
             JSONObject itemmedium = itemthumbnails.getJSONObject("high");
             String itemThumbnail = itemmedium.getString("url");
             Picasso.get().load(itemThumbnail).into(video5ImageView);
+            tinyDB.putString("thumbnail4",itemThumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }

@@ -132,7 +132,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos0");
+                String thumbnail = tinyDB.getString("thumbnail0");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -141,7 +143,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos0");
+                String thumbnail = tinyDB.getString("thumbnail0");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -150,7 +154,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos1");
+                String thumbnail = tinyDB.getString("thumbnail1");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -159,7 +165,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos1");
+                String thumbnail = tinyDB.getString("thumbnail1");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -168,7 +176,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos2");
+                String thumbnail = tinyDB.getString("thumbnail2");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -177,7 +187,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos2");
+                String thumbnail = tinyDB.getString("thumbnail2");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -186,7 +198,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos3");
+                String thumbnail = tinyDB.getString("thumbnail3");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -195,7 +209,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos3");
+                String thumbnail = tinyDB.getString("thumbnail3");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -204,7 +220,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos4");
+                String thumbnail = tinyDB.getString("thumbnail4");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -213,7 +231,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String videoID = tinyDB.getString("pos4");
+                String thumbnail = tinyDB.getString("thumbnail4");
                 playVideoIntent.putExtra("pos",videoID);
+                playVideoIntent.putExtra("thumbnail",thumbnail);
                 startActivity(playVideoIntent);
             }
         });
@@ -251,6 +271,7 @@ public class SearchFragment extends Fragment {
             String item0Thumbnail = item0medium.getString("url");
             Log.d("item0Thumbnail", item0Thumbnail);
             Picasso.get().load(item0Thumbnail).into(item0ImageView);
+            tinyDB.putString("thumbnail0",item0Thumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -273,6 +294,7 @@ public class SearchFragment extends Fragment {
             JSONObject item1medium = item1thumbnails.getJSONObject("medium");
             String item1Thumbnail = item1medium.getString("url");
             Picasso.get().load(item1Thumbnail).into(item1ImageView);
+            tinyDB.putString("thumbnail1",item1Thumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -295,6 +317,7 @@ public class SearchFragment extends Fragment {
             JSONObject item2medium = item2thumbnails.getJSONObject("medium");
             String item2Thumbnail = item2medium.getString("url");
             Picasso.get().load(item2Thumbnail).into(item2ImageView);
+            tinyDB.putString("thumbnail2",item2Thumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -317,6 +340,7 @@ public class SearchFragment extends Fragment {
             JSONObject item3medium = item3thumbnails.getJSONObject("medium");
             String item3Thumbnail = item3medium.getString("url");
             Picasso.get().load(item3Thumbnail).into(item3ImageView);
+            tinyDB.putString("thumbnail3",item3Thumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -339,6 +363,7 @@ public class SearchFragment extends Fragment {
             JSONObject item4medium = item4thumbnails.getJSONObject("medium");
             String item4Thumbnail = item4medium.getString("url");
             Picasso.get().load(item4Thumbnail).into(item4ImageView);
+            tinyDB.putString("thumbnail4",item4Thumbnail);
         }catch (JSONException e){
             e.printStackTrace();
         }

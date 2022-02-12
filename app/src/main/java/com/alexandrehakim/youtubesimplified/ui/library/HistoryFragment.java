@@ -9,11 +9,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.alexandrehakim.youtubesimplified.R;
 import com.alexandrehakim.youtubesimplified.databinding.FragmentHistoryBinding;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.ArrayList;
 
@@ -35,7 +40,13 @@ public class HistoryFragment extends Fragment {
 
         historyListView = binding.historyListView;
 
-        // TODO: finalize
+        FirebaseFirestore.getInstance().collection("history").document("history")
+                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        // TODO : get array of thumbnails + array of titles
+                    }
+                });
 
         arrayAdapter = new ArrayAdapter(getContext(), R.layout.layout_adapterview, R.id.titleTextView, historyArrayList);
         historyListView.setAdapter(arrayAdapter);

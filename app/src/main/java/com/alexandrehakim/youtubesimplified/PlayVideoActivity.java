@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -24,7 +26,7 @@ public class PlayVideoActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        Intent getVideoID = getIntent();
+        Intent getVideo = getIntent();
 
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youTubePlayerView);
         getLifecycle().addObserver(youTubePlayerView);
@@ -32,11 +34,17 @@ public class PlayVideoActivity extends AppCompatActivity {
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                youTubePlayer.loadVideo(getVideoID.getStringExtra("pos"), 0);
+                youTubePlayer.loadVideo(getVideo.getStringExtra("pos"), 0);
             }
         });
 
         youTubePlayerView.toggleFullScreen();
+
+        FirebaseFirestore.getInstance().collection("history").document("history")
+                .update("history",FieldValue.arrayUnion(getVideo.getStringExtra("pos")));
+
+        FirebaseFirestore.getInstance().collection("history").document("history")
+                .update("thumbnailHistory",FieldValue.arrayUnion(getVideo.getStringExtra("thumbnail")));
 
     }
 
