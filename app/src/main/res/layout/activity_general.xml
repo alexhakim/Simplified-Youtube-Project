@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".GeneralActivity">
 
+    <ImageView
+        android:id="@+id/clearImageView"
+        android:layout_width="28dp"
+        android:layout_height="32dp"
+        android:layout_margin="10dp"
+        app:srcCompat="@drawable/ic_baseline_clear_24" />
+
+    <Switch
+        android:id="@+id/takeBreakSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="60dp"
+        android:switchPadding="158dp"
+        android:switchMinWidth="50dp"
+        android:text="Remind me to take a break"
+        android:textSize="16sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Switch
+        android:id="@+id/bedtimeSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginTop="100dp"
+        android:switchPadding="138dp"
+        android:switchMinWidth="50dp"
+        android:text="Remind me when it's bedtime"
+        android:textSize="16sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 </RelativeLayout>
