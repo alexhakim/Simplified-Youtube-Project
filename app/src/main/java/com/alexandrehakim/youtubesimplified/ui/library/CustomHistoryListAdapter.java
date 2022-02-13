@@ -7,12 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.fragment.app.Fragment;
-
 import com.alexandrehakim.youtubesimplified.R;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class CustomHistoryListAdapter extends ArrayAdapter {

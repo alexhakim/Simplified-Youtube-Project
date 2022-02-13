@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.21574074074074073" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.225" />
         <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.2296875" />
+        <entry key="app/src/main/res/layout/activity_general.xml" value="0.2296875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_play_video.xml" value="0.23505434782608695" />

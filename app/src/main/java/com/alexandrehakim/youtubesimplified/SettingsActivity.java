@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -36,7 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuthWithGoogle;
     private final static int RC_SIGN_IN = 10;
 
-    ImageView clearImageView;
+    ImageView clearImageView, photoImageView;
     SignInButton signinButton;
     ListView settingsListView;
 
@@ -45,7 +47,8 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+        // Check if user is signed in and update UI.
+
         FirebaseUser currentUser = firebaseAuthWithGoogle.getCurrentUser();
         updateUI(currentUser);
     }
@@ -72,12 +75,26 @@ public class SettingsActivity extends AppCompatActivity {
         clearImageView = findViewById(R.id.clearImageView);
         signinButton = findViewById(R.id.signinButton);
         settingsListView= findViewById(R.id.settingsListView);
+        photoImageView = findViewById(R.id.photoImageView);
 
         settingsOptions.add("About");
         settingsOptions.add("General");
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(SettingsActivity.this, android.R.layout.simple_list_item_1, settingsOptions);
         settingsListView.setAdapter(arrayAdapter);
+
+        settingsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                if (position == 0){
+                    Intent about = new Intent(SettingsActivity.this,AboutActivity.class);
+                    startActivity(about);
+                } else {
+                    Intent general = new Intent(SettingsActivity.this,GeneralActivity.class);
+                    startActivity(general);
+                }
+            }
+        });
 
 
 
@@ -87,8 +104,6 @@ public class SettingsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        // TODO: if user is not signed in, display sign in button and above_signin image
 
         signinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Log.d("GoogleSignIn", "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
+                // Google Sign In failed, update UI
                 Log.w("GoogleSignIn Error", "Google sign in failed", e);
             }
         }
@@ -145,5 +160,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
+       // photoImageView.setImageAlpha(0);
     }
 }

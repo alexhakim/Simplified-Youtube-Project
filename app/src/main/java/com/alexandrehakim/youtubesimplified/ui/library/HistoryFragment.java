@@ -28,9 +28,7 @@ public class HistoryFragment extends Fragment {
 
     private History history;
     private FragmentHistoryBinding binding;
-    ImageView videoImageView;
     private ListView historyListView;
-    ArrayAdapter arrayAdapter;
     ArrayList<String> historyArrayList = new ArrayList<String>();
     ArrayList<String> thumbnailsArrayList = new ArrayList<String>();
 
@@ -51,8 +49,6 @@ public class HistoryFragment extends Fragment {
                 .addSnapshotListener(new EventListener<DocumentSnapshot>() {
                     @Override
                     public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                        // TODO : get array of thumbnails + array of titles
-
                         try{
                             if (value.get("history") != null){
                                 historyArrayList = (ArrayList<String>) value.get("history");
