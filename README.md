@@ -11,9 +11,9 @@ The purpose of this project is to develop a simplified verstion of the android y
 
 ## App Main Features
 1. Login features
-2. History, Settings, Profile
+2. History, Settings
 3. Search & Play videos
-4. Trending videos
+4. Home Page (Trending videos)
 
 ### Created by Alexandre Hakim. 
 
