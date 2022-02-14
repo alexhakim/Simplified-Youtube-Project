@@ -18,11 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
         android:paddingStart="10dp"
         android:paddingTop="10dp"
-        android:layout_marginTop="60dp"
-        android:switchPadding="158dp"
         android:switchMinWidth="50dp"
+        android:switchPadding="158dp"
         android:text="Remind me to take a break"
         android:textSize="16sp"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
